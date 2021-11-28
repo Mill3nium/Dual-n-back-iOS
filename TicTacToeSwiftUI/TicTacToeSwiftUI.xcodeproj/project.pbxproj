@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B608B392753F817008B9895 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B608B382753F817008B9895 /* ButtonView.swift */; };
 		EB1ADA612746932700D5C7A1 /* BackroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ADA602746932700D5C7A1 /* BackroundView.swift */; };
 		EB1ADA6327469A1300D5C7A1 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ADA6227469A1300D5C7A1 /* Marker.swift */; };
 		EB1ADA652746F7CA00D5C7A1 /* TicTacToeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ADA642746F7CA00D5C7A1 /* TicTacToeModel.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B608B382753F817008B9895 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		EB1ADA602746932700D5C7A1 /* BackroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackroundView.swift; sourceTree = "<group>"; };
 		EB1ADA6227469A1300D5C7A1 /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		EB1ADA642746F7CA00D5C7A1 /* TicTacToeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeModel.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				EB1ADA602746932700D5C7A1 /* BackroundView.swift */,
 				EB92CB72274B8FF000133211 /* BoardView.swift */,
 				EBDD2FC827466A7800A82AE4 /* CircularProgressView.swift */,
+				6B608B382753F817008B9895 /* ButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			files = (
 				EBDD2FA72746389B00A82AE4 /* ContentView.swift in Sources */,
 				EB92CB6C274AE2AF00133211 /* TextInfo.swift in Sources */,
+				6B608B392753F817008B9895 /* ButtonView.swift in Sources */,
 				EBDD2FC927466A7800A82AE4 /* CircularProgressView.swift in Sources */,
 				EB92CB75274BA19400133211 /* TicTacToeVM.swift in Sources */,
 				EB1ADA612746932700D5C7A1 /* BackroundView.swift in Sources */,
