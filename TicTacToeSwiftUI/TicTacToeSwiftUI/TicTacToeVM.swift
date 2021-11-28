@@ -50,12 +50,12 @@ class TicTacToeVM : ObservableObject  {
     
     func speech(tile:Int){
         if(tile == 1){
-            let crossVoice = AVSpeechUtterance(string: "Circle")
+            let crossVoice = AVSpeechUtterance(string: "a")
             synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate )
             synthesizer.speak(crossVoice)
            
         }else if(tile == 2){
-            let crossVoice = AVSpeechUtterance(string: "Cross")
+            let crossVoice = AVSpeechUtterance(string: "b")
             synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate )
             synthesizer.speak(crossVoice)
         }else if(tile == 3){

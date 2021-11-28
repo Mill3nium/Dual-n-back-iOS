@@ -13,30 +13,16 @@ struct Marker: View {
     var marker : Int
     var id : Int
     
+    var onPosition:Bool = false
+    
     var body: some View {
-        Button {
-            theViewModel.aMove(position: id)
-        } label: {
-            if(marker == 1){
-                Circle().stroke(Color(.red), lineWidth: 10)
-            }else if(marker == 2){
-                ZStack{
-                    Rectangle()
-                        .fill(Color(.gray))
-                        .cornerRadius(10)
-                        .rotationEffect(Angle(degrees: 45))
-                        .frame(width: 10, height: 110, alignment: .center)
-                    Rectangle()
-                        .fill(Color(.gray))
-                        .cornerRadius(10)
-                        .rotationEffect(Angle(degrees: 135))
-                        .frame(width: 10, height: 110, alignment: .center)
-                }
-            }else{
-                Rectangle().fill(Color(.white))
-            }
+        if onPosition == true {
+            Rectangle().fill(Color(.white))
+                .frame(width: 95, height: 95, alignment: .center)
+        } else {
+            Rectangle().fill(Color(.orange))
+                .frame(width: 95, height: 95, alignment: .center)
         }
-        .frame(width: 75, height: 75, alignment: .center)
     }
 }
 

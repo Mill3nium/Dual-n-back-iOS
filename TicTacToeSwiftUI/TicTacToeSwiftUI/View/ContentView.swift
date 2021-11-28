@@ -45,7 +45,7 @@ struct ContentView: View {
                     Button {
                         theViewModel.resetGame()
                     } label: {
-                        Text("Reset")
+                        Text("New Round")
                     }
                     .padding()
                     ButtonsView()
@@ -59,12 +59,13 @@ struct ContentView: View {
                         Button {
                             theViewModel.resetGame()
                         } label: {
-                            Text("Reset")
+                            Text("New Round")
                         }
                         .padding()
+                        ButtonsView()
                     }
                     .frame(width: 300, height: 300, alignment: .center)
-                    ButtonsView()
+  
                     BoardView()
                     
                 }
