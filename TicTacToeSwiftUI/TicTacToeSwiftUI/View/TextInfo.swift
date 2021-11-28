@@ -30,3 +30,4 @@ struct TextInfo: View {
         }
     }
 }
+
