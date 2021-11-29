@@ -5,7 +5,7 @@ import SwiftUI
 // call our action
 struct DeviceRotationViewModifier: ViewModifier {
     let action: (UIDeviceOrientation) -> Void
-
+    
     func body(content: Content) -> some View {
         content
             .onAppear()
@@ -25,9 +25,9 @@ extension View {
 
 
 struct ContentView: View {
-    @EnvironmentObject var theViewModel : NBackVM
+    @EnvironmentObject var vm : NBackVM
     @State private var orientation = UIDeviceOrientation.portrait
-
+    
     var body: some View {
         Group{
             if orientation.isPortrait{
@@ -37,11 +37,11 @@ struct ContentView: View {
                         .font(.title)
                     
                     BoardView()
+                        .padding()
                     
-                    .padding()
                     ButtonsView()
                 }
-                            
+                
             } else if orientation.isLandscape {
                 HStack{
                     VStack{
@@ -52,7 +52,7 @@ struct ContentView: View {
                         ButtonsView()
                     }
                     .frame(width: 300, height: 300, alignment: .center)
-  
+                    
                     BoardView()
                     
                 }

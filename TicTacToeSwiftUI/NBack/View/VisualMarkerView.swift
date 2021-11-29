@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct Marker: View {
+struct VisualMarkerView: View {
     @EnvironmentObject var theViewModel : NBackVM
 
     var marker : Int
@@ -19,4 +19,3 @@ struct Marker: View {
         }
     }
 }
-
