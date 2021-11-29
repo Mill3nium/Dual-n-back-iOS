@@ -14,6 +14,10 @@ struct ContentView: View {
                 Image(systemName: "clock.arrow.circlepath")
                 Text("History")
             }
+            SettingsView().tabItem{
+                Image(systemName: "gear")
+                Text("Settings")
+            }
         }
         .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
             vm.orientation = UIDevice.current.orientation
