@@ -1,14 +1,8 @@
-//
-//  BoardView.swift
-//  TicTacToeSwiftUI
-//
-//  Created by Jonas Wåhslén on 2021-11-22.
-//
 
 import SwiftUI
 
 struct BoardView: View {
-    @EnvironmentObject var theViewModel : TicTacToeVM
+    @EnvironmentObject var theViewModel : NBackVM
     
     var body: some View {
         ZStack{

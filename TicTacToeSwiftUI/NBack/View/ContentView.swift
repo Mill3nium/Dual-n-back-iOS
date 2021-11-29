@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  TicTacToeSwiftUI
-//
-//  Created by Jonas Wåhslén on 2021-11-18.
-//
 
 import SwiftUI
 
@@ -31,22 +25,19 @@ extension View {
 
 
 struct ContentView: View {
-    @EnvironmentObject var theViewModel : TicTacToeVM
+    @EnvironmentObject var theViewModel : NBackVM
     @State private var orientation = UIDeviceOrientation.portrait
 
     var body: some View {
         Group{
             if orientation.isPortrait{
                 VStack{
-                    TextInfo().padding()
+                    
+                    Text("NBack")
+                        .font(.title)
                     
                     BoardView()
                     
-                    Button {
-                        theViewModel.resetGame()
-                    } label: {
-                        Text("New Round")
-                    }
                     .padding()
                     ButtonsView()
                 }
@@ -54,14 +45,10 @@ struct ContentView: View {
             } else if orientation.isLandscape {
                 HStack{
                     VStack{
-                        TextInfo().padding()
                         
-                        Button {
-                            theViewModel.resetGame()
-                        } label: {
-                            Text("New Round")
-                        }
-                        .padding()
+                        Text("NBack")
+                            .font(.title)
+                        
                         ButtonsView()
                     }
                     .frame(width: 300, height: 300, alignment: .center)

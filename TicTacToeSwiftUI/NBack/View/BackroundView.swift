@@ -1,9 +1,3 @@
-//
-//  BackroundView.swift
-//  TicTacToeSwiftUI
-//
-//  Created by Jonas Wåhslén on 2021-11-18.
-//
 
 import SwiftUI
 

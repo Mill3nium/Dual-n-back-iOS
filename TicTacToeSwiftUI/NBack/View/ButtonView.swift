@@ -1,9 +1,3 @@
-//
-//  ButtonView.swift
-//  TicTacToeSwiftUI
-//
-//  Created by Milan Languric on 2021-11-28.
-//
 
 import SwiftUI
 

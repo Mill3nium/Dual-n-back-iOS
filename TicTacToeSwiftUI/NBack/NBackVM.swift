@@ -1,52 +1,11 @@
-//
-//  TicTacToeVM.swift
-//  TicTacToeSwiftUI
-//
-//  Created by Jonas Wåhslén on 2021-11-22.
-//
 
 import Foundation
 import AVFoundation
 
-class TicTacToeVM : ObservableObject  {
+class NBackVM : ObservableObject  {
     let synthesizer = AVSpeechSynthesizer()
-    var theModel = TicTacToeModel()
+    var theModel = NBackModel()
     @Published var markers : [aMarker] = initMarkers()
-   
-    func resetGame(){
-        markers = initMarkers()
-        theModel.resetGame()
-    }
-    
-    
-    func aMove(position: Int){
-        print("aMove: \(position)")
-        let res = theModel.aMove(position: position)
-        if res != 0 {
-            markers[position].state = res
-            speech(tile: res)
-            let count = theModel.count
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                self.hurryUP(moves: count)
-            }
-        }
-        
-    }
-    
-    func hurryUP(moves: Int){
-        print("moves: \(moves) ModelMoves: \(theModel.count)")
-        if moves == theModel.count && moves < 10 {
-            speech(tile: 3)
-        }
-    }
-    
-    func getTile(position: Int) -> Int{
-        return theModel.gameState[position];
-    }
-    
-    func checkWinner() -> Int{
-        return theModel.checkWinner()
-    }
     
     func speech(tile:Int){
         if(tile == 1){
@@ -63,8 +22,6 @@ class TicTacToeVM : ObservableObject  {
             synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate )
             synthesizer.speak(crossVoice)
         }
-       
-        
     }
 }
 

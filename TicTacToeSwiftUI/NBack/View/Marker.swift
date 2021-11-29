@@ -1,19 +1,13 @@
-//
-//  Marker.swift
-//  TicTacToeSwiftUI
-//
-//  Created by Jonas Wåhslén on 2021-11-18.
-//
 
 import SwiftUI
 
 struct Marker: View {
-    @EnvironmentObject var theViewModel : TicTacToeVM
+    @EnvironmentObject var theViewModel : NBackVM
 
     var marker : Int
     var id : Int
     
-    var onPosition:Bool = false
+    var onPosition: Bool = false
     
     var body: some View {
         if onPosition == true {
