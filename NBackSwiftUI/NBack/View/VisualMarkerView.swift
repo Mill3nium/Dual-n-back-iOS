@@ -4,18 +4,18 @@ import SwiftUI
 struct VisualMarkerView: View {
     @EnvironmentObject var theViewModel : NBackVM
 
-    var marker : Int
     var id : Int
-    
-    var onPosition: Bool = false
+    var markerIsTurnedOn: Bool
     
     var body: some View {
-        if onPosition == true {
+        if markerIsTurnedOn == true {
             Rectangle().fill(Color(.white))
                 .frame(width: 95, height: 95, alignment: .center)
+                .animation(.linear, value: 2)
         } else {
             Rectangle().fill(Color(.orange))
                 .frame(width: 95, height: 95, alignment: .center)
+                .animation(.linear, value: 2)
         }
     }
 }
