@@ -1,10 +1,12 @@
 
 import Foundation
 import AVFoundation
+import SwiftUI
 
 class NBackVM : ObservableObject  {
     let synthesizer = AVSpeechSynthesizer()
     var theModel = NBackModel()
+    @Published var orientation = UIDeviceOrientation.portrait
     @Published var markers : [VisualMarkerData] = initMarkers()
     @Published var playing = false
     

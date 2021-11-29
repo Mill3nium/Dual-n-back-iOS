@@ -1,65 +1,26 @@
 
 import SwiftUI
 
-// Our custom view modifier to track rotation and
-// call our action
-struct DeviceRotationViewModifier: ViewModifier {
-    let action: (UIDeviceOrientation) -> Void
-    
-    func body(content: Content) -> some View {
-        content
-            .onAppear()
-            .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
-                action(UIDevice.current.orientation)
-            }
-    }
-}
-
-// A View wrapper to make the modifier easier to use
-extension View {
-    func onRotate(perform action: @escaping (UIDeviceOrientation) -> Void) -> some View {
-        self.modifier(DeviceRotationViewModifier(action: action))
-    }
-}
-
-
-
 struct ContentView: View {
     @EnvironmentObject var vm : NBackVM
-    @State private var orientation = UIDeviceOrientation.portrait
     
     var body: some View {
-        Group{
-            if orientation.isPortrait{
-                VStack{
-                    
-                    Text("NBack")
-                        .font(.title)
-                    
-                    BoardView()
-                        .padding()
-                    
-                    ButtonsView()
-                }
-                
-            } else if orientation.isLandscape {
-                HStack{
-                    VStack{
-                        
-                        Text("NBack")
-                            .font(.title)
-                        
-                        ButtonsView()
-                    }
-                    .frame(width: 300, height: 300, alignment: .center)
-                    
-                    BoardView()
-                    
-                }
+        TabView {
+            GameView().tabItem{
+                Image(systemName: "gamecontroller")
+                Text("N-Back")
+            }
+            HistoryView().tabItem{
+                Image(systemName: "clock.arrow.circlepath")
+                Text("History")
             }
         }
-        .onRotate { newOrientation in orientation = newOrientation}
+        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+            vm.orientation = UIDevice.current.orientation
+            // Sometimes orientation cannot be determined
+            if(vm.orientation == UIDeviceOrientation.unknown) {
+                vm.orientation = UIDeviceOrientation.portrait
+            }
+        }
     }
 }
-
-
