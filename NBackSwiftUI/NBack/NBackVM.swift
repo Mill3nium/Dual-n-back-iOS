@@ -13,7 +13,6 @@ class NBackVM : ObservableObject  {
     @Published var orientation = UIDeviceOrientation.portrait
     @Published var visuals : [VisualMarkerData] = initMarkers()
     @Published var playing = false
-    @Published var started = false
     
     enum ButtonState {
         case disabled, enabled, incorrect
@@ -78,7 +77,6 @@ class NBackVM : ObservableObject  {
     func reset() {
         stimuliTask?.cancel()
         playing = false
-        started = false
         currentStimuli = 0
         
         visuals = initMarkers()

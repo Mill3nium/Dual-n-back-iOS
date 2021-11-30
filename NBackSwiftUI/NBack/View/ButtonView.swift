@@ -38,7 +38,7 @@ struct ButtonsView: View {
             }, label: {
                 Text(vm.playing ? "Stop" : "Start")
                     .frame(width: 100, height: 50, alignment: .center)
-                    .background(vm.started ? Color.red : Color.green)
+                    .background(vm.playing ? Color.red : Color.green)
                     .foregroundColor(.white)
                     .cornerRadius(8)
             })
