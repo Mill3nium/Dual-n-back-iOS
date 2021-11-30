@@ -7,6 +7,9 @@ class NBackVM : ObservableObject  {
     let synthesizer = AVSpeechSynthesizer()
     var theModel = NBackModel()
     
+    private let SettingsKey :String = "SettingsUserDefault"
+    
+    @Published var theSettingsModel = SettingsModel()
     @Published var orientation = UIDeviceOrientation.portrait
     @Published var markers : [VisualMarkerData] = initMarkers()
     @Published var playing = false
@@ -27,14 +30,41 @@ class NBackVM : ObservableObject  {
         }
     }
     
+    func loadSettingsFromUD(){
+        if let data = UserDefaults.standard.data(forKey: SettingsKey){
+            do{
+                let settings =  try JSONDecoder().decode(SettingsModel.self, from: data)
+                self.theSettingsModel.numberOfEvents = settings.numberOfEvents
+                self.theSettingsModel.timeBetweenEvents = settings.timeBetweenEvents
+                self.theSettingsModel.gameSettings = settings.gameSettings
+            }catch{
+                print(error)
+            }
+        }
+    }
+    
+    func saveSettingsToUD(){
+        do{
+            let settings = SettingsModel(
+                numberOfEvents: theSettingsModel.numberOfEvents,
+                timeBetweenEvents: theSettingsModel.timeBetweenEvents,
+                gameSettings: theSettingsModel.gameSettings
+            )
+            let encoded = try JSONEncoder().encode(settings)
+            UserDefaults.standard.set(encoded, forKey: SettingsKey)
+        }catch{
+            print(error)
+        }
+    }
+    
     func turnOnMarker(index:Int){
         markers[index].isTuredOn = true
     }
-
+    
     func turnOffMarker(index:Int){
         markers[index].isTuredOn = false
     }
-
+    
     func isTurnedOn(){
         
     }

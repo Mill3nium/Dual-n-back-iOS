@@ -11,6 +11,7 @@
 		299854F027548C7200CBABAE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854EF27548C7200CBABAE /* HistoryView.swift */; };
 		299854F62755360100CBABAE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854F52755360100CBABAE /* SettingsView.swift */; };
 		6B608B392753F817008B9895 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B608B382753F817008B9895 /* ButtonView.swift */; };
+		6BCC528727556902006E4433 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCC528627556902006E4433 /* SettingsModel.swift */; };
 		EB1ADA612746932700D5C7A1 /* BackroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ADA602746932700D5C7A1 /* BackroundView.swift */; };
 		EB1ADA6327469A1300D5C7A1 /* VisualMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ADA6227469A1300D5C7A1 /* VisualMarkerView.swift */; };
 		EB1ADA652746F7CA00D5C7A1 /* NBackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ADA642746F7CA00D5C7A1 /* NBackModel.swift */; };
@@ -27,6 +28,7 @@
 		299854EF27548C7200CBABAE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		299854F52755360100CBABAE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6B608B382753F817008B9895 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		6BCC528627556902006E4433 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		EB1ADA602746932700D5C7A1 /* BackroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackroundView.swift; sourceTree = "<group>"; };
 		EB1ADA6227469A1300D5C7A1 /* VisualMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualMarkerView.swift; sourceTree = "<group>"; };
 		EB1ADA642746F7CA00D5C7A1 /* NBackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBackModel.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		EBDD2FA32746389B00A82AE4 /* NBack */ = {
 			isa = PBXGroup;
 			children = (
+				6BCC528627556902006E4433 /* SettingsModel.swift */,
 				EBDD2FA42746389B00A82AE4 /* NBackApp.swift */,
 				EB92CB74274BA19400133211 /* NBackVM.swift */,
 				EB1ADA642746F7CA00D5C7A1 /* NBackModel.swift */,
@@ -172,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BCC528727556902006E4433 /* SettingsModel.swift in Sources */,
 				EBDD2FA72746389B00A82AE4 /* ContentView.swift in Sources */,
 				6B608B392753F817008B9895 /* ButtonView.swift in Sources */,
 				EB92CB75274BA19400133211 /* NBackVM.swift in Sources */,
@@ -313,7 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NBack/Preview Content\"";
-				DEVELOPMENT_TEAM = J4C9R2ESH3;
+				DEVELOPMENT_TEAM = Y5N8AH8N8Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -342,7 +346,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NBack/Preview Content\"";
-				DEVELOPMENT_TEAM = J4C9R2ESH3;
+				DEVELOPMENT_TEAM = Y5N8AH8N8Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
