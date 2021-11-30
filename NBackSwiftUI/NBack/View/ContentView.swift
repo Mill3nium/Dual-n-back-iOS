@@ -10,10 +10,6 @@ struct ContentView: View {
                 Image(systemName: "gamecontroller")
                 Text("N-Back")
             }
-            HistoryView().tabItem{
-                Image(systemName: "clock.arrow.circlepath")
-                Text("History")
-            }
             SettingsView().tabItem{
                 Image(systemName: "gear")
                 Text("Settings")

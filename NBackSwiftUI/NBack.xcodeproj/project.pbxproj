@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		299854EE2754845800CBABAE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854ED2754845800CBABAE /* GameView.swift */; };
-		299854F027548C7200CBABAE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854EF27548C7200CBABAE /* HistoryView.swift */; };
 		299854F62755360100CBABAE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854F52755360100CBABAE /* SettingsView.swift */; };
 		6B608B392753F817008B9895 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B608B382753F817008B9895 /* ButtonView.swift */; };
 		6BCC528727556902006E4433 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCC528627556902006E4433 /* SettingsModel.swift */; };
@@ -25,7 +24,6 @@
 
 /* Begin PBXFileReference section */
 		299854ED2754845800CBABAE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		299854EF27548C7200CBABAE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		299854F52755360100CBABAE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6B608B382753F817008B9895 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		6BCC528627556902006E4433 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 				EB92CB72274B8FF000133211 /* BoardView.swift */,
 				6B608B382753F817008B9895 /* ButtonView.swift */,
 				299854ED2754845800CBABAE /* GameView.swift */,
-				299854EF27548C7200CBABAE /* HistoryView.swift */,
 				299854F52755360100CBABAE /* SettingsView.swift */,
 			);
 			path = View;
@@ -183,7 +180,6 @@
 				EB1ADA612746932700D5C7A1 /* BackroundView.swift in Sources */,
 				EB1ADA652746F7CA00D5C7A1 /* NBackModel.swift in Sources */,
 				EB1ADA6327469A1300D5C7A1 /* VisualMarkerView.swift in Sources */,
-				299854F027548C7200CBABAE /* HistoryView.swift in Sources */,
 				EB92CB73274B8FF000133211 /* BoardView.swift in Sources */,
 				EBDD2FA52746389B00A82AE4 /* NBackApp.swift in Sources */,
 				299854F62755360100CBABAE /* SettingsView.swift in Sources */,
