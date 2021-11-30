@@ -36,7 +36,8 @@ class NBackVM : ObservableObject  {
                 let settings =  try JSONDecoder().decode(SettingsModel.self, from: data)
                 self.theSettingsModel.numberOfEvents = settings.numberOfEvents
                 self.theSettingsModel.timeBetweenEvents = settings.timeBetweenEvents
-                self.theSettingsModel.gameSettings = settings.gameSettings
+                self.theSettingsModel.audioStimuli = settings.audioStimuli
+                self.theSettingsModel.visualStimuli = settings.visualStimuli
             }catch{
                 print(error)
             }
@@ -48,7 +49,8 @@ class NBackVM : ObservableObject  {
             let settings = SettingsModel(
                 numberOfEvents: theSettingsModel.numberOfEvents,
                 timeBetweenEvents: theSettingsModel.timeBetweenEvents,
-                gameSettings: theSettingsModel.gameSettings
+                audioStimuli: theSettingsModel.audioStimuli,
+                visualStimuli: theSettingsModel.visualStimuli
             )
             let encoded = try JSONEncoder().encode(settings)
             UserDefaults.standard.set(encoded, forKey: SettingsKey)

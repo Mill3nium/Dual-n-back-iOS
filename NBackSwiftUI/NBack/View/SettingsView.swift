@@ -20,42 +20,19 @@ struct SettingsView: View {
                 Form{
                     Section{
                         Toggle("Audio", isOn: $isAudio).onChange(of: isAudio) { newValue in
-                            print("Toggle Audio!")
-                            print(isAudio)
-                            if isAudio == true && isVisual == true{
-                                vm.theSettingsModel.gameSettings = GameSettings.AUDIOANDVISUAL
-                            }else if isAudio == false && isVisual == true{
-                                vm.theSettingsModel.gameSettings = GameSettings.AUDIO
-                            }else{
-                                vm.theSettingsModel.gameSettings = GameSettings.VISUAL
-                            }
+                            vm.theSettingsModel.visualStimuli = self.isVisual
+                            vm.theSettingsModel.audioStimuli = self.isAudio
                             vm.saveSettingsToUD()
                         }
                         Toggle("Visual", isOn: $isVisual).onChange(of: isVisual) { newValue in
-                            print("Toggle Visual!")
-                            print(isVisual)
-                            if isAudio == true && isVisual == true{
-                                vm.theSettingsModel.gameSettings = GameSettings.AUDIOANDVISUAL
-                            }else if isAudio == false && isVisual == true{
-                                vm.theSettingsModel.gameSettings = GameSettings.VISUAL
-                            }else{
-                                vm.theSettingsModel.gameSettings = GameSettings.AUDIO
-                            }
-                            
+                            vm.theSettingsModel.visualStimuli = self.isVisual
+                            vm.theSettingsModel.audioStimuli = self.isAudio
                             vm.saveSettingsToUD()
                         }
                     }.onAppear{
-                        switch vm.theSettingsModel.gameSettings{
-                        case GameSettings.AUDIOANDVISUAL:
-                            isAudio = true
-                            isVisual = true
-                        case GameSettings.AUDIO:
-                            isAudio = false
-                            isVisual = true
-                        case GameSettings.VISUAL:
-                            isAudio = false
-                            isVisual = true
-                        }
+                        vm.loadSettingsFromUD()
+                        self.isAudio = vm.theSettingsModel.audioStimuli
+                        self.isVisual = vm.theSettingsModel.visualStimuli
                     }
                     
                     Stepper(value: $vm.theSettingsModel.numberOfEvents, in: 1...10,step: 1){
