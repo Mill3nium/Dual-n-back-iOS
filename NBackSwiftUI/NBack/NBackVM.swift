@@ -7,6 +7,9 @@ class NBackVM : ObservableObject  {
     let synthesizer = AVSpeechSynthesizer()
     var theModel = NBackModel()
     
+    private let SettingsKey :String = "SettingsUserDefault"
+    
+    @Published var theSettingsModel = SettingsModel()
     @Published var orientation = UIDeviceOrientation.portrait
     @Published var visuals : [VisualMarkerData] = initMarkers()
     @Published var playing = false
@@ -40,6 +43,35 @@ class NBackVM : ObservableObject  {
             let crossVoice = AVSpeechUtterance(string: "Time to place a marker")
             synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate )
             synthesizer.speak(crossVoice)
+        }
+    }
+    
+    func loadSettingsFromUD(){
+        if let data = UserDefaults.standard.data(forKey: SettingsKey){
+            do{
+                let settings =  try JSONDecoder().decode(SettingsModel.self, from: data)
+                self.theSettingsModel.numberOfEvents = settings.numberOfEvents
+                self.theSettingsModel.timeBetweenEvents = settings.timeBetweenEvents
+                self.theSettingsModel.audioStimuli = settings.audioStimuli
+                self.theSettingsModel.visualStimuli = settings.visualStimuli
+            }catch{
+                print(error)
+            }
+        }
+    }
+    
+    func saveSettingsToUD(){
+        do{
+            let settings = SettingsModel(
+                numberOfEvents: theSettingsModel.numberOfEvents,
+                timeBetweenEvents: theSettingsModel.timeBetweenEvents,
+                audioStimuli: theSettingsModel.audioStimuli,
+                visualStimuli: theSettingsModel.visualStimuli
+            )
+            let encoded = try JSONEncoder().encode(settings)
+            UserDefaults.standard.set(encoded, forKey: SettingsKey)
+        }catch{
+            print(error)
         }
     }
     

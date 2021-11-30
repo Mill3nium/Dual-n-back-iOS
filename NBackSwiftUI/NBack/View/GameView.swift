@@ -20,7 +20,6 @@ struct GameView: View {
                     
                     ButtonsView()
                 }
-                
             } else if vm.orientation.isLandscape {
                 HStack{
                     VStack{

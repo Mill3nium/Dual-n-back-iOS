@@ -10,10 +10,6 @@ struct ContentView: View {
                 Image(systemName: "gamecontroller")
                 Text("N-Back")
             }
-            HistoryView().tabItem{
-                Image(systemName: "clock.arrow.circlepath")
-                Text("History")
-            }
             SettingsView().tabItem{
                 Image(systemName: "gear")
                 Text("Settings")
@@ -25,6 +21,9 @@ struct ContentView: View {
             if(vm.orientation == UIDeviceOrientation.unknown) {
                 vm.orientation = UIDeviceOrientation.portrait
             }
+        }.task {
+            print("load data...")
+            vm.loadSettingsFromUD()
         }
     }
 }
