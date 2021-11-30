@@ -8,8 +8,8 @@ struct BoardView: View {
         ZStack{
             BackroundView(width: 300, height: 300)
             
-            ForEach(vm.markers) { marker in
-                VisualMarkerView(id: marker.id,markerIsTurnedOn: marker.isTuredOn )
+            ForEach(vm.visuals) { marker in
+                VisualMarkerView(id: marker.id,markerIsTurnedOn: marker.triggered )
                     .position(x: CGFloat(50+marker.x*100), y: CGFloat(50+marker.y*100))
             }
         }

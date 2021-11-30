@@ -50,7 +50,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EB92CB6D274AE93F00133211 /* View */ = {
+		EB92CB6D274AE93F00133211 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				EBDD2FA62746389B00A82AE4 /* ContentView.swift */,
@@ -87,7 +87,7 @@
 				EBDD2FA42746389B00A82AE4 /* NBackApp.swift */,
 				EB92CB74274BA19400133211 /* NBackVM.swift */,
 				EB1ADA642746F7CA00D5C7A1 /* NBackModel.swift */,
-				EB92CB6D274AE93F00133211 /* View */,
+				EB92CB6D274AE93F00133211 /* Views */,
 				EBDD2FA82746389D00A82AE4 /* Assets.xcassets */,
 				EBDD2FAA2746389D00A82AE4 /* Preview Content */,
 			);
