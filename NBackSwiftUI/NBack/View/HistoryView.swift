@@ -5,6 +5,7 @@
 //  Created by Leo Zaki on 2021-11-29.
 //
 
+import SwiftUICharts
 import SwiftUI
 
 struct HistoryView: View {
@@ -19,13 +20,15 @@ struct HistoryView: View {
     var body: some View {
         NavigationView {
             VStack{
-                Form{
-                    Text("Hello Hello")
-                    Text("Hello Hello")
-                    Text("Hello Hello")
-                    Text("Hello Hello")
-                    Text("Hello Hello")
-                }
+                BarChartView(
+                    data: ChartData(values: [
+                        ("Jan",12),
+                        ("Feb",1),
+                        ("Mar",20),
+                        ("May",5),
+                        ("Jun",15),
+                    ]),
+                    title: "Progress")
             }.navigationTitle("History")
         }
         .task{

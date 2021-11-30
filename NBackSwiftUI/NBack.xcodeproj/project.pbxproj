@@ -10,6 +10,7 @@
 		299854EE2754845800CBABAE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854ED2754845800CBABAE /* GameView.swift */; };
 		299854F027548C7200CBABAE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854EF27548C7200CBABAE /* HistoryView.swift */; };
 		299854F62755360100CBABAE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854F52755360100CBABAE /* SettingsView.swift */; };
+		6B5591D12756BF3300BB282D /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6B5591D02756BF3300BB282D /* SwiftUICharts */; };
 		6B608B392753F817008B9895 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B608B382753F817008B9895 /* ButtonView.swift */; };
 		6BCC528727556902006E4433 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCC528627556902006E4433 /* SettingsModel.swift */; };
 		EB1ADA612746932700D5C7A1 /* BackroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ADA602746932700D5C7A1 /* BackroundView.swift */; };
@@ -46,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B5591D12756BF3300BB282D /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +123,9 @@
 			dependencies = (
 			);
 			name = NBack;
+			packageProductDependencies = (
+				6B5591D02756BF3300BB282D /* SwiftUICharts */,
+			);
 			productName = TicTacToeSwiftUI;
 			productReference = EBDD2FA12746389B00A82AE4 /* NBack.app */;
 			productType = "com.apple.product-type.application";
@@ -149,6 +154,9 @@
 				Base,
 			);
 			mainGroup = EBDD2F982746389B00A82AE4;
+			packageReferences = (
+				6B5591CF2756BF3300BB282D /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = EBDD2FA22746389B00A82AE4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -389,6 +397,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6B5591CF2756BF3300BB282D /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6B5591D02756BF3300BB282D /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B5591CF2756BF3300BB282D /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EBDD2F992746389B00A82AE4 /* Project object */;
 }
