@@ -52,7 +52,7 @@ class NBackVM : ObservableObject  {
         audioButtonState = ButtonState.disabled
     }
     
-    var stimuliTask: Task<(), Never>?
+    private var stimuliTask: Task<(), Never>?
     func begin() {
         playing = true
         visualSequence = Array.init(repeating: -1, count: preferences.n+1)
@@ -60,10 +60,7 @@ class NBackVM : ObservableObject  {
         stimuliTask = Task { await nextStimuli() }
     }
     
-//    @Published var n = 1;
     @Published var currentStimuli = 0
-//    @Published var maxStimuli = 21
-//    @Published var stimuliInterval: UInt64 = 3
     
     private var visualSequence: [Int] = []
     private var visualMatch = false
@@ -73,7 +70,7 @@ class NBackVM : ObservableObject  {
     private var audioMatch = false
     private var audioNoticed = false
     
-    func nextStimuli() async {
+    private func nextStimuli() async {
         do {
             try await Task.sleep(nanoseconds: preferences.interval * 1_000_000_000)
             
@@ -133,6 +130,7 @@ class NBackVM : ObservableObject  {
             // Check if first marker is same as last marker, set flag if current is an N-Back
             audioMatch = audioSequence[0] != -1 && audioSequence[0] == audioSequence[preferences.n]
             // Trigger audio stimuli
+            synthesizer.speak(AVSpeechUtterance(string: "\("sprftvlcx"[nextAudio])" ))
             
             try await Task.sleep(nanoseconds: 600_000_000)
             
@@ -159,14 +157,14 @@ class NBackVM : ObservableObject  {
         audioNoticed = true
     }
     
-    func end() async {
+    private func end() async {
         // Calculate result
         // Save
         DispatchQueue.main.async { self.reset() }
     }
 }
 
-func initMarkers() -> [VisualMarkerData] {
+private func initMarkers() -> [VisualMarkerData] {
     return [
         VisualMarkerData(id: 0, x: 0, y: 0),
         VisualMarkerData(id: 1, x: 1, y: 0),
@@ -185,4 +183,10 @@ struct VisualMarkerData: Hashable, Codable, Identifiable {
     var x: Int
     var y: Int
     var triggered = false
+}
+
+extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
 }
