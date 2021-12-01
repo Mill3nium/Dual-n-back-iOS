@@ -5,11 +5,8 @@ import SwiftUI
 
 class NBackVM : ObservableObject  {
     let synthesizer = AVSpeechSynthesizer()
-    var theModel = NBackModel()
     
-    private let SettingsKey :String = "SettingsUserDefault"
-    
-    @Published var theSettingsModel = SettingsModel()
+    @Published var preferences = PreferencesModel.load()
     @Published var orientation = UIDeviceOrientation.portrait
     @Published var visuals : [VisualMarkerData] = initMarkers()
     @Published var playing = false
@@ -45,35 +42,6 @@ class NBackVM : ObservableObject  {
         }
     }
     
-    func loadSettingsFromUD(){
-        if let data = UserDefaults.standard.data(forKey: SettingsKey){
-            do{
-                let settings =  try JSONDecoder().decode(SettingsModel.self, from: data)
-                self.theSettingsModel.numberOfEvents = settings.numberOfEvents
-                self.theSettingsModel.timeBetweenEvents = settings.timeBetweenEvents
-                self.theSettingsModel.audioStimuli = settings.audioStimuli
-                self.theSettingsModel.visualStimuli = settings.visualStimuli
-            }catch{
-                print(error)
-            }
-        }
-    }
-    
-    func saveSettingsToUD(){
-        do{
-            let settings = SettingsModel(
-                numberOfEvents: theSettingsModel.numberOfEvents,
-                timeBetweenEvents: theSettingsModel.timeBetweenEvents,
-                audioStimuli: theSettingsModel.audioStimuli,
-                visualStimuli: theSettingsModel.visualStimuli
-            )
-            let encoded = try JSONEncoder().encode(settings)
-            UserDefaults.standard.set(encoded, forKey: SettingsKey)
-        }catch{
-            print(error)
-        }
-    }
-    
     func reset() {
         stimuliTask?.cancel()
         playing = false
@@ -87,15 +55,15 @@ class NBackVM : ObservableObject  {
     var stimuliTask: Task<(), Never>?
     func begin() {
         playing = true
-        visualSequence = Array.init(repeating: -1, count: n+1)
-        audioSequence = Array.init(repeating: -1, count: n+1)
+        visualSequence = Array.init(repeating: -1, count: preferences.n+1)
+        audioSequence = Array.init(repeating: -1, count: preferences.n+1)
         stimuliTask = Task { await nextStimuli() }
     }
     
-    @Published var n = 1;
+//    @Published var n = 1;
     @Published var currentStimuli = 0
-    @Published var maxStimuli = 21
-    @Published var stimuliInterval: UInt64 = 3
+//    @Published var maxStimuli = 21
+//    @Published var stimuliInterval: UInt64 = 3
     
     private var visualSequence: [Int] = []
     private var visualMatch = false
@@ -107,7 +75,7 @@ class NBackVM : ObservableObject  {
     
     func nextStimuli() async {
         do {
-            try await Task.sleep(nanoseconds: stimuliInterval * 1_000_000_000)
+            try await Task.sleep(nanoseconds: preferences.interval * 1_000_000_000)
             
             // notify if incorrect
             if currentStimuli != 0 {
@@ -128,7 +96,7 @@ class NBackVM : ObservableObject  {
                 try await Task.sleep(nanoseconds: 300_000_000)
             }
             
-            if(self.currentStimuli == self.maxStimuli) {
+            if(self.currentStimuli == self.preferences.stimulations) {
                 await end()
                 return
             }
@@ -140,11 +108,11 @@ class NBackVM : ObservableObject  {
             
             // Process visual n-back
             // Rotate back 1 step in sequence
-            for m in 1...n { visualSequence[m-1] = visualSequence[m] }
+            for m in 1...preferences.n { visualSequence[m-1] = visualSequence[m] }
             // Push next to end of sequence
-            visualSequence[n] = nextVisual;
+            visualSequence[preferences.n] = nextVisual;
             // Check if first marker is same as last marker, set flag if current is an N-Back
-            visualMatch = visualSequence[0] != -1 && visualSequence[0] == visualSequence[n]
+            visualMatch = visualSequence[0] != -1 && visualSequence[0] == visualSequence[preferences.n]
             // Trigger visual stimuli
             DispatchQueue.main.async {
                 if self.currentStimuli >= 1 {
@@ -159,11 +127,11 @@ class NBackVM : ObservableObject  {
             
             // Process audio n-back
             // Rotate back 1 step in sequence
-            for m in 1...n { audioSequence[m-1] = audioSequence[m] }
+            for m in 1...preferences.n { audioSequence[m-1] = audioSequence[m] }
             // Push next to end of sequence
-            audioSequence[n] = nextAudio;
+            audioSequence[preferences.n] = nextAudio;
             // Check if first marker is same as last marker, set flag if current is an N-Back
-            audioMatch = audioSequence[0] != -1 && audioSequence[0] == audioSequence[n]
+            audioMatch = audioSequence[0] != -1 && audioSequence[0] == audioSequence[preferences.n]
             // Trigger audio stimuli
             
             try await Task.sleep(nanoseconds: 600_000_000)

@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		299854EE2754845800CBABAE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854ED2754845800CBABAE /* GameView.swift */; };
-		299854F62755360100CBABAE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854F52755360100CBABAE /* SettingsView.swift */; };
+		299854F62755360100CBABAE /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299854F52755360100CBABAE /* PreferencesView.swift */; };
 		6B608B392753F817008B9895 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B608B382753F817008B9895 /* ButtonView.swift */; };
-		6BCC528727556902006E4433 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCC528627556902006E4433 /* SettingsModel.swift */; };
+		6BCC528727556902006E4433 /* PreferencesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCC528627556902006E4433 /* PreferencesModel.swift */; };
 		EB1ADA612746932700D5C7A1 /* BackroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ADA602746932700D5C7A1 /* BackroundView.swift */; };
 		EB1ADA6327469A1300D5C7A1 /* VisualMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ADA6227469A1300D5C7A1 /* VisualMarkerView.swift */; };
-		EB1ADA652746F7CA00D5C7A1 /* NBackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ADA642746F7CA00D5C7A1 /* NBackModel.swift */; };
 		EB92CB73274B8FF000133211 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB92CB72274B8FF000133211 /* BoardView.swift */; };
 		EB92CB75274BA19400133211 /* NBackVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB92CB74274BA19400133211 /* NBackVM.swift */; };
 		EBDD2FA52746389B00A82AE4 /* NBackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD2FA42746389B00A82AE4 /* NBackApp.swift */; };
@@ -24,12 +23,11 @@
 
 /* Begin PBXFileReference section */
 		299854ED2754845800CBABAE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		299854F52755360100CBABAE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		299854F52755360100CBABAE /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		6B608B382753F817008B9895 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		6BCC528627556902006E4433 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		6BCC528627556902006E4433 /* PreferencesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesModel.swift; sourceTree = "<group>"; };
 		EB1ADA602746932700D5C7A1 /* BackroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackroundView.swift; sourceTree = "<group>"; };
 		EB1ADA6227469A1300D5C7A1 /* VisualMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualMarkerView.swift; sourceTree = "<group>"; };
-		EB1ADA642746F7CA00D5C7A1 /* NBackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBackModel.swift; sourceTree = "<group>"; };
 		EB92CB72274B8FF000133211 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		EB92CB74274BA19400133211 /* NBackVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBackVM.swift; sourceTree = "<group>"; };
 		EBDD2FA12746389B00A82AE4 /* NBack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +48,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EB92CB6D274AE93F00133211 /* Views */ = {
+		EB92CB6D274AE93F00133211 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				EBDD2FA62746389B00A82AE4 /* ContentView.swift */,
@@ -59,7 +57,7 @@
 				EB92CB72274B8FF000133211 /* BoardView.swift */,
 				6B608B382753F817008B9895 /* ButtonView.swift */,
 				299854ED2754845800CBABAE /* GameView.swift */,
-				299854F52755360100CBABAE /* SettingsView.swift */,
+				299854F52755360100CBABAE /* PreferencesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -83,11 +81,10 @@
 		EBDD2FA32746389B00A82AE4 /* NBack */ = {
 			isa = PBXGroup;
 			children = (
-				6BCC528627556902006E4433 /* SettingsModel.swift */,
+				6BCC528627556902006E4433 /* PreferencesModel.swift */,
 				EBDD2FA42746389B00A82AE4 /* NBackApp.swift */,
 				EB92CB74274BA19400133211 /* NBackVM.swift */,
-				EB1ADA642746F7CA00D5C7A1 /* NBackModel.swift */,
-				EB92CB6D274AE93F00133211 /* Views */,
+				EB92CB6D274AE93F00133211 /* View */,
 				EBDD2FA82746389D00A82AE4 /* Assets.xcassets */,
 				EBDD2FAA2746389D00A82AE4 /* Preview Content */,
 			);
@@ -172,17 +169,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BCC528727556902006E4433 /* SettingsModel.swift in Sources */,
+				6BCC528727556902006E4433 /* PreferencesModel.swift in Sources */,
 				EBDD2FA72746389B00A82AE4 /* ContentView.swift in Sources */,
 				6B608B392753F817008B9895 /* ButtonView.swift in Sources */,
 				EB92CB75274BA19400133211 /* NBackVM.swift in Sources */,
 				299854EE2754845800CBABAE /* GameView.swift in Sources */,
 				EB1ADA612746932700D5C7A1 /* BackroundView.swift in Sources */,
-				EB1ADA652746F7CA00D5C7A1 /* NBackModel.swift in Sources */,
 				EB1ADA6327469A1300D5C7A1 /* VisualMarkerView.swift in Sources */,
 				EB92CB73274B8FF000133211 /* BoardView.swift in Sources */,
 				EBDD2FA52746389B00A82AE4 /* NBackApp.swift in Sources */,
-				299854F62755360100CBABAE /* SettingsView.swift in Sources */,
+				299854F62755360100CBABAE /* PreferencesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

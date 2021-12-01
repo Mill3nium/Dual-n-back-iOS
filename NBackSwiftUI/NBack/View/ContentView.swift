@@ -21,9 +21,6 @@ struct ContentView: View {
             if(vm.orientation == UIDeviceOrientation.unknown) {
                 vm.orientation = UIDeviceOrientation.portrait
             }
-        }.task {
-            print("load data...")
-            vm.loadSettingsFromUD()
         }
     }
 }
