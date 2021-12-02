@@ -7,7 +7,7 @@ struct PreferencesModel: Codable{
     var stimulations: Int = 21
     var interval: UInt64 = 3
     var visual: Bool = true
-    var audio: Bool = false
+    var audio: Bool = true
     
     private init() { }
     

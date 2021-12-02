@@ -9,7 +9,7 @@ struct VisualMarkerView: View {
     
     var body: some View {
         if markerIsTurnedOn == true {
-            Rectangle().fill(Color(.white))
+            Rectangle().fill(Color(.blue))
                 .frame(width: 95, height: 95, alignment: .center)
                 .animation(.linear, value: 2)
         } else {

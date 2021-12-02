@@ -29,7 +29,7 @@ struct SettingsView: View {
                         Stepper(
                             "N: \(vm.preferences.n)",
                             value: $vm.preferences.n,
-                            in: 1...vm.preferences.stimulations-1
+                            in: 1...vm.preferences.stimulations
                         ) {_ in vm.preferences.save() }
                         Stepper(
                             "Amount: \(vm.preferences.stimulations)",
