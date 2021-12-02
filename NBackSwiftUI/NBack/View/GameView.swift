@@ -13,15 +13,7 @@ struct GameView: View {
     
     var body: some View {
         Group {
-            if vm.orientation.isPortrait {
-                VStack{
-                    resultTexts
-                    
-                    BoardView()
-                        .padding()
-                    ButtonsView()
-                }
-            } else if vm.orientation.isLandscape {
+            if vm.orientation.isLandscape {
                 HStack{
                     VStack{
                         resultTexts
@@ -31,6 +23,15 @@ struct GameView: View {
                     .frame(width: 300, height: 300, alignment: .center)
                     
                     BoardView()
+                }
+            }
+            else {
+                VStack{
+                    resultTexts
+                    
+                    BoardView()
+                        .padding()
+                    ButtonsView()
                 }
             }
         }
